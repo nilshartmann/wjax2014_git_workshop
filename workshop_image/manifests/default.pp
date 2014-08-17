@@ -44,7 +44,8 @@ archive { 'eclipse':
   src_target => '/tmp'
 }
 ->
-file { "/usr/share/applications/eclipse.desktop":
+file { "/home/vagrant/Desktop/eclipse.desktop": 
+    mode => 775,
     ensure => "present",
     source => "/vagrant/data/eclipse.desktop",
 }
