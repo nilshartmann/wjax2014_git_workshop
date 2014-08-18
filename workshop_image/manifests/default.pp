@@ -49,3 +49,7 @@ file { "/home/vagrant/Desktop/eclipse.desktop":
     ensure => "present",
     source => "/vagrant/data/eclipse.desktop",
 }
+
+exec { "install gradle eclipse tooling":
+	command => "/opt/eclipse/eclipse -application org.eclipse.equinox.p2.director -consolelog -noSplash -repository http://dist.springsource.com/release/TOOLS/gradle -installIU org.springsource.ide.eclipse.gradle.feature.feature.group"
+}
