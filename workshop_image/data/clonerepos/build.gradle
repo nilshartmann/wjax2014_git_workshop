@@ -1,22 +1,19 @@
+apply plugin: de.e2.wjax.CloneSubRepoPlugin
+
 def userFile=file('user.gradle')
 if(userFile.exists()) {
   apply from: userFile
 }
 
-if(!project.hasProperty('targetDirRoot')) {
-  project.ext.targetDirRoot='repos'
-}
-
-task repo1 (type: de.e2.wjax.CloneSubRepo) {
-  repoUrl='/Users/rene/temp/repos/root/'
-  targetDir='repo1'
-  deleteTargetDir=true
-  prefix='examples/repo1/'
-}
-
-task repo2 (type: de.e2.wjax.CloneSubRepo) {
+task einstieg (type: de.e2.wjax.CloneSubRepoTask) {
   repoUrl='https://bitbucket.org/nilshartmann/wjax2014_git_workshop.git'
-  targetDir='repo2'
+  targetDir='einstieg'
   deleteTargetDir=true
-  prefix=''
+  prefix='examples/einstieg/'
+}
+
+task all;
+
+tasks.withType(de.e2.wjax.CloneSubRepoTask).each {
+  all.dependsOn(it)
 }

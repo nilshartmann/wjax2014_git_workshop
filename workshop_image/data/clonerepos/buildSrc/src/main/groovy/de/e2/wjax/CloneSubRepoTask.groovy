@@ -7,7 +7,7 @@ import org.eclipse.jgit.lib.*
 import org.eclipse.jgit.api.*
 import org.ajoberstar.grgit.operation.*
 
-class CloneSubRepo extends DefaultTask {
+class CloneSubRepoTask extends DefaultTask {
     @Input
     Boolean deleteTargetDir
     @Input
@@ -29,32 +29,13 @@ class CloneSubRepo extends DefaultTask {
     @Optional
     String repoPassword
 
-    String getRepoUser() {
-        if (repoUser) return repoUser
-
-        if (project.hasProperty('repoUser')) return project.repoUser
-
-        return null
-    }
-
-    String getRepoPassword() {
-        if (repoPassword) return repoPassword
-
-        if (project.hasProperty('repoPassword')) return project.repoPassword
-
-        return null
+    File getRepoDir() {
+        return new File(new File(project.repoDirRoot), targetDir)
     }
 
     @TaskAction
     void run() {
-        def repoDir = null
-
-        if (targetDir.startsWith('/') || !project.hasProperty('targetDirRoot')) {
-            repoDir = project.file(targetDir)
-        } else {
-            repoDir = new File(new File(project.targetDirRoot), targetDir)
-        }
-
+        def repoDir = getRepoDir()
 
         if (deleteTargetDir) project.delete repoDir
 
