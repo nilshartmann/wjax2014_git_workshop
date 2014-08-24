@@ -4,8 +4,8 @@
 
 
 **/
-class Hello {
+class HelloWorld {
   static void main(String[] paras) {
-    println "Hello"
+    println "HelloWorld"
   }
 }
