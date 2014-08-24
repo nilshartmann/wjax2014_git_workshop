@@ -5,15 +5,15 @@ if(userFile.exists()) {
   apply from: userFile
 }
 
+task all;
+
+tasks.withType(de.e2.wjax.CloneSubRepoTask) {
+  all.dependsOn(it)
+}
+
 task einstieg (type: de.e2.wjax.CloneSubRepoTask) {
   repoUrl='https://bitbucket.org/nilshartmann/wjax2014_git_workshop.git'
   targetDir='einstieg'
   deleteTargetDir=true
   prefix='examples/einstieg/'
-}
-
-task all;
-
-tasks.withType(de.e2.wjax.CloneSubRepoTask).each {
-  all.dependsOn(it)
 }
