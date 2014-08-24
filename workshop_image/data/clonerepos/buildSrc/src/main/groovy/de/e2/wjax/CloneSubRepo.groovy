@@ -19,9 +19,31 @@ class CloneSubRepo extends DefaultTask {
   @Input @Optional
   String defaultBranch='master'
 
+  @Input @Optional
+  String repoUser
+
+  @Input @Optional
+  String repoPassword
+
   @TaskAction
   void run() {
-    def repoDir=new File(targetDir)
+    if(!repoUser && project.hasProperty('repoUser')) {
+      repoUser=project.repoUser
+    }
+
+    if(!repoPassword && project.hasProperty('repoPassword')) {
+      repoPassword=project.repoPassword
+    }
+
+    def repoDir=null
+
+    if(targetDir.startsWith('/') || !project.hasProperty('targetDirRoot')) {
+      repoDir=project.file(targetDir)
+    } else {
+      repoDir=new File(new File(project.targetDirRoot),targetDir)      
+    }
+
+
     if(deleteTargetDir) project.delete repoDir
 
     def repo = Grgit.init(dir: repoDir)
@@ -31,7 +53,17 @@ class CloneSubRepo extends DefaultTask {
     config.setString("remote", "origin", "fetch", "+refs/heads/$prefix*:refs/remotes/origin/*")
     config.save()
 
+    if(repoUser && repoPassword) {
+      println repoUser
+      System.properties.'org.ajoberstar.grgit.auth.username' = repoUser
+      System.properties.'org.ajoberstar.grgit.auth.password' = repoPassword
+    }
+
     repo.fetch(remote: "origin")
+
+    System.properties.'org.ajoberstar.grgit.auth.username' = ''
+    System.properties.'org.ajoberstar.grgit.auth.password' = ''
+
     repo.branch.add(name: defaultBranch, startPoint: "origin/$defaultBranch", mode: BranchAddOp.Mode.TRACK)
     repo.checkout(branch: defaultBranch)
     //The checkout in an empty repo does not change the workspace
