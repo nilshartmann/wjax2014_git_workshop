@@ -5,8 +5,9 @@ class { 'apt':
 apt::ppa { 'ppa:git-core/ppa':}
 apt::ppa { 'ppa:cwchien/gradle':}
 apt::ppa { 'ppa:webupd8team/atom':}
+apt::ppa { 'ppa:webupd8team/java':}
 
-package { 'openjdk-7-jdk' :
+package { 'oracle-java8-installer' :
   ensure => installed
 }
 ->
@@ -38,6 +39,13 @@ package { 'atom':
 Apt::Ppa['ppa:git-core/ppa'] -> Package['git','git-gui']
 Apt::Ppa['ppa:cwchien/gradle'] -> Package['gradle']
 Apt::Ppa['ppa:webupd8team/atom'] -> Package['atom']
+Apt::Ppa['ppa:webupd8team/java'] -> Package['oracle-java8-installer']
+
+exec { "accept java license":
+  command => "/bin/echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | sudo /usr/bin/debconf-set-selections"
+}
+
+Exec['accept java license']->Package['oracle-java8-installer']
 
 archive { 'eclipse':
   ensure => present,
@@ -58,7 +66,7 @@ exec { "install gradle eclipse tooling":
 	command => "/opt/eclipse/eclipse -application org.eclipse.equinox.p2.director -consolelog -noSplash -repository http://dist.springsource.com/release/TOOLS/gradle -installIU org.springsource.ide.eclipse.gradle.feature.feature.group"
 }
 
-Package['openjdk-7-jdk'] -> Archive['eclipse']
+Package['oracle-java8-installer'] -> Archive['eclipse']
 
 exec { "get all repos":
   cwd => "/vagrant/data/clonerepos",
