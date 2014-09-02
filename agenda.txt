@@ -7,6 +7,7 @@ Git internas
  * Blob, Tree, Commit
  * cat-file -p
  * Umbenennen verstehen
+    (ggf Umbenennen von Groß-/Kleinschreibung)
  * git log kennenlernen
  * Branches, Remotes [Nils]
 
