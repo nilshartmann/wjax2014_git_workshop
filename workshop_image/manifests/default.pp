@@ -65,6 +65,10 @@ file { "/home/vagrant/Desktop/eclipse.desktop":
 exec { "install gradle eclipse tooling":
 	command => "/opt/eclipse/eclipse -application org.eclipse.equinox.p2.director -consolelog -noSplash -repository http://dist.springsource.com/release/TOOLS/gradle -installIU org.springsource.ide.eclipse.gradle.feature.feature.group"
 }
+->
+exec { "install groovy eclipse tooling":
+  command => "/opt/eclipse/eclipse -application org.eclipse.equinox.p2.director -consolelog -noSplash -repository http://dist.springsource.org/milestone/GRECLIPSE/e4.4/ -installIU org.codehaus.groovy.eclipse.feature.feature.group"
+}
 
 Package['oracle-java8-installer'] -> Archive['eclipse']
 
