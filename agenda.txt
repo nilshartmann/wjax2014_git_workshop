@@ -1,0 +1,71 @@
+
+1,5h
+Einstieg / Installation
+Git internas
+ - Ziele:
+ * Object-Database und Inhalt zeigen
+ * Blob, Tree, Commit
+ * cat-file -p
+ * Umbenennen verstehen
+ * git log kennenlernen
+ * Branches, Remotes [Nils]
+
+1,5h
+Welche Branch-Strategie passt am besten zu Ihrem Projekt?
+Wie können Sie mit Rebasing eine "schöne" Historie erzeugen?
+
+(0,75h) Wie arbeite ich in der ENTWICKLUNG? Mit oder ohne Feature-Branches? [Rene]
+ - Annahme: es gibt ein Remote-Repository
+ - Merge vs Rebase (Interaktiv)
+ - Pullrequest / Review
+ - Übung interaktives Rebasing (Puzzle)
+ 
+(0,75h) Wie sieht der RELEASEprozess? [Nils]
+ - Durchlaufende Branches + Bugfixes (GitFlow)
+ - n aktive Releases (Produktgeschäft) vs 1 aktives Release (Projektgeschäft; GitFlow)
+ - [Exkurs als Alternative/Beispiel für n aktive Releases 'extrem'] Linux-Branches als Beispiel
+ - Cherry-Picking für Backports
+ - Wie gehe ich mit Bugfixes um
+
+ - Übung: Release untersuchen, z.B. "Erzeugen Sie ein Releasenotes für Release XYZ", "Prüfen Sie, ob Bugfix XY im Release ZZZ vorhanden sind", "Stellen Sie sicher, dass Bugfix ??? im kommenden Release enthalten ist"
+ 
+1h
+Wie verwenden Sie Submodules oder Subtrees dazu, andere Projekte einzubinden? [Rene]
+- In Java eher selten die Notwendigkeit, Sourcen aus anderen Projekten einzubinden bzw wird über andere Tools erledigt (Maven z.B.)
+- Historisch wo kommt das her? In der Praxis eher in C/C++ relevant.
+- Große Repositories aufteilen, weil sie sonst zu langsam werden
+* Submodule <> Subtrees
+* Branching, Update auf neueste Version, Arbeiten
+* (Write-Tree -> Experte)
+- Praxis-Beispiel: Bootstrap Repository in Java Webanwendung einbinden [Nils]
+   - Zwei "äußere" Repositories, zeigen auf selbes Bootstrap-Repository
+* Übung: jeweils mit subtree und submodule im "eingebunden" repository Änderung machen und committen
+
+
+1h
+Git APIs: Alternativen zu Git Bash
+* libgit2/ruby/javascript [Rene]
+* jgit [Nils]
+* Groovy-API [Nils]
+* Übung: Merge-Down von Release-Branches
+   - Merge
+   - Push
+   - Wenn Push nicht geht, Reset hard ausführen
+
+0,5h
+Wie setzen Sie Git mit Build-Tools wie Maven [Nils] und Gradle [Rene] ein?
+* Release Plugin Maven und Gradle
+* Versionsgestaltung
+- keine Übung, Beispiele vorbereiten, die wir ausführen
+
+(Optional) Repository Reorganisation
+- Zusammenführen von Repositories
+- Aufteilen von Repositories
+- Historie abschneiden
+- Nur zeigen
+
+Optional:
+Wie können sie Pull-Requests zur Qualitätssicherung einsetzen?
+- Stash + Jenkins ???
+- Vergleich zu Gerrit
+- ggf. Gitlab
