@@ -2,6 +2,10 @@ class { 'apt':
  always_apt_update => true,
 }
 
+class { 'ruby':
+  gems_version  => 'latest'
+}
+
 apt::ppa { 'ppa:git-core/ppa':}
 apt::ppa { 'ppa:cwchien/gradle':}
 apt::ppa { 'ppa:webupd8team/atom':}
@@ -33,6 +37,15 @@ package { 'git-gui':
 
 package { 'atom':
   ensure => 'installed'
+}
+
+package { 'cmake':
+    ensure   => 'installed',
+}
+->
+package { 'rugged':
+    ensure   => 'installed',
+    provider => 'gem',
 }
 
 
