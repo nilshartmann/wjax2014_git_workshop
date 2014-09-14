@@ -1,7 +1,7 @@
 
 1,5h
 Einstieg / Installation
-Git internas 
+Git internas
  - Ziele:
  * Object-Database und Inhalt zeigen [Rene]
  * Blob, Tree, Commit [Rene]
@@ -11,20 +11,20 @@ Git internas
  * git log kennenlernen [Rene]
  * git reflog ????
  * git gc ????
- 
- * Branches, Tags [Nils]
+
+ * Branches, Tags [Rene]
     * branch, checkout, tag  -> nur kurz, bestimmt bekannt
     * show-ref -> für die vollständigen Ref-Namen -> Hinweis auf die Ref-Dateien im .git Verzeichnis
     * HEAD-Datei -> als symbolisches Ref zeigen -> detached HEAD als Spezialfall zeigen
     * show-ref --dereference -> für Annotated Tags
-   
+
  * Merge [Nils]
     * merge, merge-base, merge-file
      * merge.conflictstyle diff3
     * ls-files --stage -> nach Merge Konflikt->Stages erklären
     * checkout --theirs, --ours
     * checkout -m FILE -> nochmal mit dem Merge beginnen
-   
+
  * Remotes [Nils]
     * ls-remote -> vorab sehen welche Branches es gibt
     * remote add, update, -> Remote-Tracking-Branches zeigen
@@ -34,7 +34,7 @@ Git internas
     * refspecs erklären -> + Zeichen
     * fetch -> ohne benanntes Remote -> FETCH_HEAD
     * pull -> pull.rebase -> branch.autosetuprebase
- 
+
 
 1,5h
 Welche Branch-Strategie passt am besten zu Ihrem Projekt?
@@ -45,7 +45,7 @@ Wie können Sie mit Rebasing eine "schöne" Historie erzeugen?
  - Merge vs Rebase (Interaktiv)
  - Pullrequest / Review
  - Übung interaktives Rebasing (Puzzle)
- 
+
 (0,75h) Wie sieht der RELEASEprozess? [Nils]
  - Durchlaufende Branches + Bugfixes (GitFlow)
  - n aktive Releases (Produktgeschäft) vs 1 aktives Release (Projektgeschäft; GitFlow)
@@ -54,7 +54,7 @@ Wie können Sie mit Rebasing eine "schöne" Historie erzeugen?
  - Wie gehe ich mit Bugfixes um
 
  - Übung: Release untersuchen, z.B. "Erzeugen Sie ein Releasenotes für Release XYZ", "Prüfen Sie, ob Bugfix XY im Release ZZZ vorhanden sind", "Stellen Sie sicher, dass Bugfix ??? im kommenden Release enthalten ist"
- 
+
 1h
 Wie verwenden Sie Submodules oder Subtrees dazu, andere Projekte einzubinden? [Rene]
 - In Java eher selten die Notwendigkeit, Sourcen aus anderen Projekten einzubinden bzw wird über andere Tools erledigt (Maven z.B.)
