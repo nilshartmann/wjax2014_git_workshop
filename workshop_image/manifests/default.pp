@@ -101,7 +101,7 @@ file { "/home/vagrant/Schreibtisch":
     owner  => "vagrant",
     group  => "vagrant",
 }
-->
+
 file { "/home/vagrant/Schreibtisch/terminal.desktop":
     mode => 775,
     ensure => "present",
@@ -124,5 +124,6 @@ file { "/home/vagrant/Schreibtisch/atom.desktop":
     ensure => "present",
     source => "/vagrant/data/atom.desktop",
     owner  => "vagrant",
-    group  => "vagrant"
+    group  => "vagrant",
+    require => Package['atom']
 }
