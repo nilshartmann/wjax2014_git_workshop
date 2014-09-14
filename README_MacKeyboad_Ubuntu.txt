@@ -16,6 +16,8 @@ Compose Taste:
 Strg+Alt+Zurück verwenden, um den X-Server zu beenden?
 	Nein
 
+Neustart der VM erforderlich :-(
+
 Danach kann man dann die rechte Alt-Taste wie die Mac Command-Taste
 verwenden, d.h. das @-Zeichen bekommt man z.B. mit Alt (Rechts)-L,
 das Pipe-Symbol mit Alt (Rechts)-7
