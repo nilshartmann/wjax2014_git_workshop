@@ -1,6 +1,6 @@
 So funktionieren die Sonderzeichen wie @ etc:
 
-sudo apt-get install keyboard-configuration && sudo dpkg-reconfigure keyboard-configuration
+sudo dpkg-reconfigure keyboard-configuration
 
 In der Konfiguration dann auswählen:
 Tastaturmodell:
@@ -15,6 +15,9 @@ Compose Taste:
 	Keine Compose-Taste
 Strg+Alt+Zurück verwenden, um den X-Server zu beenden?
 	Nein
+
+Danach ausführen:
+	sudo udevadm trigger --subsystem-match=input --action=change
 
 Danach kann man dann die rechte Alt-Taste wie die Mac Command-Taste
 verwenden, d.h. das @-Zeichen bekommt man z.B. mit Alt (Rechts)-L,
