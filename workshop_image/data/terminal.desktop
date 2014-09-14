@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Terminal
+Comment=Gnome Terminal
+Exec=/usr/bin/gnome-terminal
+Icon=gnome-terminal.xpm
+Terminal=false
+Type=Application
+Categories=Utility;Application;
+

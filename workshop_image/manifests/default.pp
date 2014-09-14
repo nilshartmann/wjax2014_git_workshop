@@ -65,6 +65,7 @@ Apt::Ppa['ppa:webupd8team/atom'] -> Package['atom']
 Apt::Ppa['ppa:webupd8team/java'] -> Package['oracle-java8-installer']
 
 
+####### Eclipse ######################################
 archive { 'eclipse':
   ensure => present,
   url    => 'http://mirror.selfnet.de/eclipse/technology/epp/downloads/release/luna/R/eclipse-java-luna-R-linux-gtk.tar.gz',
@@ -73,21 +74,6 @@ archive { 'eclipse':
   timeout => 0,
   src_target => '/tmp',
   require => Package['oracle-java8-installer'],
-}
-
-file { "/home/vagrant/Schreibtisch":
-    ensure => "directory",
-    owner  => "vagrant",
-    group  => "vagrant",
-}
-->
-file { "/home/vagrant/Schreibtisch/eclipse.desktop":
-    mode => 775,
-    ensure => "present",
-    source => "/vagrant/data/eclipse.desktop",
-    owner  => "vagrant",
-    group  => "vagrant",
-    require => Archive['eclipse'],
 }
 
 exec { "install gradle eclipse tooling":
@@ -100,9 +86,44 @@ exec { "install groovy eclipse tooling":
   require => Archive['eclipse'],
 }
 
+######## Tutorial Repositories #########################
 exec { "get all repos":
   cwd => "/vagrant/data/clonerepos",
   user => "vagrant",
   command => "/usr/bin/gradle -PrepoDirRoot=/home/vagrant/repos all",
   require => Package['gradle'],
+}
+
+###### Desktop Verknüpfungen #############################
+
+file { "/home/vagrant/Schreibtisch":
+    ensure => "directory",
+    owner  => "vagrant",
+    group  => "vagrant",
+}
+
+file { "/home/vagrant/Schreibtisch/terminal.desktop":
+    mode => 775,
+    ensure => "present",
+    source => "/vagrant/data/terminal.desktop",
+    owner  => "vagrant",
+    group  => "vagrant"
+}
+->
+file { "/home/vagrant/Schreibtisch/eclipse.desktop":
+    mode => 775,
+    ensure => "present",
+    source => "/vagrant/data/eclipse.desktop",
+    owner  => "vagrant",
+    group  => "vagrant",
+    require => Archive['eclipse'],
+}
+->
+file { "/home/vagrant/Schreibtisch/atom.desktop":
+    mode => 775,
+    ensure => "present",
+    source => "/vagrant/data/atom.desktop",
+    owner  => "vagrant",
+    group  => "vagrant",
+    require => Package['atom']
 }
