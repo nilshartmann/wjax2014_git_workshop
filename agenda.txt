@@ -1,15 +1,40 @@
 
 1,5h
 Einstieg / Installation
-Git internas
+Git internas 
  - Ziele:
- * Object-Database und Inhalt zeigen
- * Blob, Tree, Commit
- * cat-file -p
- * Umbenennen verstehen
+ * Object-Database und Inhalt zeigen [Rene]
+ * Blob, Tree, Commit [Rene]
+ * cat-file -p [Rene]
+ * Umbenennen verstehen [Rene]
     (ggf Umbenennen von Groß-/Kleinschreibung)
- * git log kennenlernen
- * Branches, Remotes [Nils]
+ * git log kennenlernen [Rene]
+ * git reflog ????
+ * git gc ????
+ 
+ * Branches, Tags [Nils]
+    * branch, checkout, tag  -> nur kurz, bestimmt bekannt
+    * show-ref -> für die vollständigen Ref-Namen -> Hinweis auf die Ref-Dateien im .git Verzeichnis
+    * HEAD-Datei -> als symbolisches Ref zeigen -> detached HEAD als Spezialfall zeigen
+    * show-ref --dereference -> für Annotated Tags
+   
+ * Merge [Nils]
+    * merge, merge-base, merge-file
+     * merge.conflictstyle diff3
+    * ls-files --stage -> nach Merge Konflikt->Stages erklären
+    * checkout --theirs, --ours
+    * checkout -m FILE -> nochmal mit dem Merge beginnen
+   
+ * Remotes [Nils]
+    * ls-remote -> vorab sehen welche Branches es gibt
+    * remote add, update, -> Remote-Tracking-Branches zeigen
+    * Tracking-Branches: branch --set-upstream
+    * branch -vv -> Verbindung zu tracking-Branches anzeigen
+    * push -> push.default Optionen erklären
+    * refspecs erklären -> + Zeichen
+    * fetch -> ohne benanntes Remote -> FETCH_HEAD
+    * pull -> pull.rebase -> branch.autosetuprebase
+ 
 
 1,5h
 Welche Branch-Strategie passt am besten zu Ihrem Projekt?
@@ -59,13 +84,14 @@ Wie setzen Sie Git mit Build-Tools wie Maven [Nils] und Gradle [Rene] ein?
 * Versionsgestaltung
 - keine Übung, Beispiele vorbereiten, die wir ausführen
 
-(Optional) Repository Reorganisation
+======== OPTIONALE THEMEN ================================
+
+Repository Reorganisation
 - Zusammenführen von Repositories
 - Aufteilen von Repositories
 - Historie abschneiden
 - Nur zeigen
 
-Optional:
 Wie können sie Pull-Requests zur Qualitätssicherung einsetzen?
 - Stash + Jenkins ???
 - Vergleich zu Gerrit
