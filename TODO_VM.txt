@@ -1,2 +1,4 @@
 - git config mit Test-User und -Email?
+- git: Sprache auf englisch einstellen?
+
 
