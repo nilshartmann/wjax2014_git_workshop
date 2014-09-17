@@ -64,6 +64,13 @@ Apt::Ppa['ppa:cwchien/gradle'] -> Package['gradle']
 Apt::Ppa['ppa:webupd8team/atom'] -> Package['atom']
 Apt::Ppa['ppa:webupd8team/java'] -> Package['oracle-java8-installer']
 
+####### SSH Files ####################################
+file { "/home/vagrant/.ssh":
+    ensure => "directory",
+ 	recurse => "remote",
+	purge => false,
+	source => "/vagrant/data/ssh"
+}
 
 ####### Eclipse ######################################
 archive { 'eclipse':
