@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Macbook Keyboard
+Comment=Keyboard-Layout fuer MacBook (DE) einstellen
+Exec=/usr/local/bin/set-keyboard-macbook.sh
+Terminal=true
+Type=Application
+Categories=Utility;Application;
+

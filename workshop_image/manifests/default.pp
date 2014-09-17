@@ -127,3 +127,11 @@ file { "/home/vagrant/Schreibtisch/atom.desktop":
     group  => "vagrant",
     require => Package['atom']
 }
+->
+file { "/home/vagrant/Schreibtisch/macbook-keyboard.desktop":
+    mode => 775,
+    ensure => "present",
+    source => "/vagrant/data/macbook-keyboard.desktop",
+    owner  => "vagrant",
+    group  => "vagrant"
+}
