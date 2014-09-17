@@ -1,4 +1,11 @@
 - git config mit Test-User und -Email?
 - git: Sprache auf englisch einstellen?
 
+- ssh ohne Passwort:
+	http://www.randomhacks.co.uk/how-to-ssh-key-with-a-passphrase-but-not-have-to-enter-it-all-the-time/
+
+VM unter Windows 7:
+ - vagrant/puppet Shared-Folder nicht gefunden (Lösung: einfach entfernen)
+ - Zuviel Hauptspeicher (auf dem Notebook nur 4GB, dafür waren die konfigurierten 2,xGB zuviel)
+
 
