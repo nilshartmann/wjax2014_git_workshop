@@ -7,7 +7,7 @@ class CloneSubRepoPlugin implements Plugin<Project>{
     @Override
     void apply(Project project) {
         if(!project.hasProperty('repoDirRoot')) {
-            project.ext.repoDirRoot='repos'
+            project.ext.repoDirRoot='repo_clones'
         }
 
         project.tasks.withType(CloneSubRepoTask) {

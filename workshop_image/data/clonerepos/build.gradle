@@ -13,7 +13,16 @@ tasks.withType(de.e2.wjax.CloneSubRepoTask) {
 
 task einstieg (type: de.e2.wjax.CloneSubRepoTask) {
   repoUrl='https://bitbucket.org/nilshartmann/wjax2014_git_workshop.git'
-  targetDir='einstieg'
-  deleteTargetDir=true
   prefix='examples/einstieg/'
 }
+
+
+task 'release-townsfolk-raw.git' (type: de.e2.wjax.CloneSubRepoTask) {
+    repoUrl='https://bitbucket.org/nilshartmann/wjax2014_git_workshop.git'
+    prefix='examples/release-townsfolk-raw/'
+}
+
+task 'release-townsfolk-raw' (type: de.e2.wjax.CloneSubRepoTask, dependsOn: 'release-townsfolk-raw.git') {
+    repoUrl="../release-townsfolk-raw.git"
+}
+

@@ -8,8 +8,11 @@ import org.eclipse.jgit.api.*
 import org.ajoberstar.grgit.operation.*
 
 class CloneSubRepoTask extends DefaultTask {
+    @Optional
     @Input
-    Boolean deleteTargetDir
+    Boolean deleteTargetDir = true
+
+    @Optional
     @Input
     String targetDir
     @Input
@@ -20,6 +23,10 @@ class CloneSubRepoTask extends DefaultTask {
     @Input
     @Optional
     String defaultBranch = 'master'
+
+    @Input
+    @Optional
+    Boolean cloneBare
 
     @Input
     @Optional
@@ -35,15 +42,33 @@ class CloneSubRepoTask extends DefaultTask {
 
     @TaskAction
     void run() {
+        if(!targetDir) {
+            targetDir=name;
+        }
+
+        if(cloneBare==null) {
+            cloneBare = targetDir.endsWith(".git")
+        }
+        if(cloneBare && !targetDir.endsWith(".git")) {
+            targetDir+=".git"
+        }
+
         def repoDir = getRepoDir()
 
         if (deleteTargetDir) project.delete repoDir
 
-        def repo = Grgit.init(dir: repoDir)
+        def repo = Grgit.init(dir: repoDir, bare: cloneBare)
 
         StoredConfig config = repo.repository.jgit.getRepository().getConfig()
         config.setString("remote", "origin", "url", repoUrl)
-        config.setString("remote", "origin", "fetch", "+refs/heads/$prefix*:refs/remotes/origin/*")
+        if(cloneBare)
+        {
+            config.setStringList("remote", "origin", "fetch", ["+refs/heads/$prefix*:refs/heads/*".toString(),"+refs/tags/$prefix*:refs/tags/*".toString()])
+            config.setStringList("remote", "origin", "push", ["refs/heads/*:refs/heads/$prefix*".toString(),"refs/tags/*:refs/tags/$prefix*".toString()])
+        } else {
+            config.setStringList("remote", "origin", "fetch", ["+refs/heads/$prefix*:refs/remotes/origin/*".toString(),"+refs/tags/$prefix*:refs/tags/$prefix*".toString()])
+            config.setStringList("remote", "origin", "push", ["refs/heads/*:refs/heads/$prefix*".toString(),"refs/tags/*:refs/tags/$prefix*".toString()])
+        }
         config.save()
 
         if (getRepoUser() && getRepoPassword()) {
@@ -52,16 +77,17 @@ class CloneSubRepoTask extends DefaultTask {
             System.properties.'org.ajoberstar.grgit.auth.password' = getRepoPassword()
         }
 
-        repo.fetch(remote: "origin")
+        repo.fetch(remote: "origin",tagMode: FetchOp.TagMode.NONE)
 
         System.properties.'org.ajoberstar.grgit.auth.username' = ''
         System.properties.'org.ajoberstar.grgit.auth.password' = ''
 
-        repo.branch.add(name: defaultBranch, startPoint: "origin/$defaultBranch", mode: BranchAddOp.Mode.TRACK)
-        repo.checkout(branch: defaultBranch)
-        //The checkout in an empty repo does not change the workspace
-        repo.reset(commit: 'HEAD', mode: ResetOp.Mode.HARD)
-
+        if(!cloneBare) {
+            repo.branch.add(name: defaultBranch, startPoint: "origin/$defaultBranch", mode: BranchAddOp.Mode.TRACK)
+            repo.checkout(branch: defaultBranch)
+            //The checkout in an empty repo does not change the workspace
+            repo.reset(commit: 'HEAD', mode: ResetOp.Mode.HARD)
+        }
         repo.close()
     }
 }
