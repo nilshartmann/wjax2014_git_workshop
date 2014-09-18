@@ -1,0 +1,46 @@
+apply plugin: 'groovy'
+apply plugin: 'release'
+
+buildscript {
+    repositories {
+        mavenCentral()
+        maven { url "https://oss.sonatype.org/content/groups/public"}
+    }
+    dependencies {
+        classpath 'com.github.townsfolk:gradle-release:1.2'
+        classpath 'org.ajoberstar:gradle-git:0.10.0'
+    }
+}
+
+import org.ajoberstar.grgit.*
+import org.ajoberstar.grgit.operation.*
+
+ext.repo = Grgit.open(project.file('.'))
+ext.devBranch='master'
+ext.stableBranch='stable'
+
+release {
+  requireBranch=devBranch
+}
+
+task mergeToStable (dependsOn: preTagCommit) {
+  createReleaseTag.dependsOn mergeToStable
+  doLast {
+    if(!repo.repository.jgit.repository.getRef(stableBranch)) {
+      repo.branch.add(name: stableBranch, startPoint: "origin/$stableBranch", mode: BranchAddOp.Mode.TRACK)
+    }
+    repo.checkout(branch: stableBranch)
+
+    repo.pull()
+    repo.merge(head: devBranch, mode: MergeOp.Mode.CREATE_COMMIT)
+    repo.push()
+  }
+}
+
+task mergeToDev (dependsOn: createReleaseTag) {
+  updateVersion.dependsOn mergeToDev
+  doLast {
+    repo.checkout(branch: devBranch)
+    repo.merge(head: stableBranch)
+  }
+}
