@@ -1,6 +1,6 @@
 class HelloWorld {
   static void hello() {
-    println "HelloWorld!!!"
+    println "HelloWorld"
   }
 
   static void main(String[] paras) {
