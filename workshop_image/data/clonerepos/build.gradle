@@ -26,3 +26,11 @@ task 'release-townsfolk-raw' (type: de.e2.wjax.CloneSubRepoTask, dependsOn: 'rel
     repoUrl="../release-townsfolk-raw.git"
 }
 
+task 'release-townsfolk-tasks.git' (type: de.e2.wjax.CloneSubRepoTask) {
+    repoUrl='https://bitbucket.org/nilshartmann/wjax2014_git_workshop.git'
+    prefix='examples/release-townsfolk-tasks/'
+}
+
+task 'release-townsfolk-tasks' (type: de.e2.wjax.CloneSubRepoTask, dependsOn: 'release-townsfolk-tasks.git') {
+    repoUrl="../release-townsfolk-tasks.git"
+}
