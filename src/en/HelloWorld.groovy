@@ -1,5 +1,9 @@
 class HelloWorld {
-  static void main(String[] paras) {
+  static void hello() {
     println "HelloWorld!!!"
+  }
+
+  static void main(String[] paras) {
+    hello()
   }
 }
