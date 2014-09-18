@@ -34,3 +34,12 @@ task 'release-townsfolk-tasks.git' (type: de.e2.wjax.CloneSubRepoTask) {
 task 'release-townsfolk-tasks' (type: de.e2.wjax.CloneSubRepoTask, dependsOn: 'release-townsfolk-tasks.git') {
     repoUrl="../release-townsfolk-tasks.git"
 }
+
+task 'release-ajoberstar.git' (type: de.e2.wjax.CloneSubRepoTask) {
+    repoUrl='https://bitbucket.org/nilshartmann/wjax2014_git_workshop.git'
+    prefix='examples/release-ajoberstar/'
+}
+
+task 'release-ajoberstar' (type: de.e2.wjax.CloneSubRepoTask, dependsOn: 'release-ajoberstar.git') {
+    repoUrl="../release-ajoberstar.git"
+}
