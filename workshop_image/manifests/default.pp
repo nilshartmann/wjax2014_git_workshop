@@ -44,16 +44,10 @@ package { 'git-gui':
   require => Package['git'],
 }
 
-file { "/usr/share/git-gui/lib/msgs/de.msg":
+file { ['/usr/share/git-gui/lib/msgs/de.msg','/usr/share/gitk/lib/msgs/de.msg']:
     ensure  => absent,
     require => Package['git-gui'],
 }
-
-file { "/usr/share/gitk/lib/msgs/de.msg":
-    ensure  => absent,
-    require => Package['git-gui'],
-}
-
 
 package { 'atom':
   ensure => 'installed'
