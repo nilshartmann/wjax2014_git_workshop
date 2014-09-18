@@ -1,0 +1,21 @@
+apply plugin: 'groovy'
+apply plugin: 'org.ajoberstar.grgit-release'
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'org.ajoberstar:gradle-git:0.10.0'
+    }
+}
+
+
+import org.ajoberstar.grgit.*
+
+release {
+    grgit = Grgit.open(project.file('.'))
+
+    //Workaround wegen Lazy-Bug
+    version.toString()
+}
