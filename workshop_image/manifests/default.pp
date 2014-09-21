@@ -25,7 +25,7 @@ package { 'groovy':
   require => Package['oracle-java8-installer'],
 }
 
-package { 'maven2':
+package { 'maven':
   ensure => 'installed',
   require => Package['oracle-java8-installer'],
 }
