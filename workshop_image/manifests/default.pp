@@ -49,9 +49,15 @@ file { ['/usr/share/git-gui/lib/msgs/de.msg','/usr/share/gitk/lib/msgs/de.msg']:
     require => Package['git-gui'],
 }
 
+file { 'gitconfig':
+	path => '/home/vagrant/.gitconfig',
+	ensure => 'file',
+	source => '/vagrant/data/gitconfig'
+}
+
 package { 'git-flow':
   ensure => 'installed',
-  require => Package['git']
+  require => [ Package['git'], File['gitconfig'] ]
 }
 
 package { 'atom':
