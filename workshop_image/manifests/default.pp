@@ -49,6 +49,11 @@ file { ['/usr/share/git-gui/lib/msgs/de.msg','/usr/share/gitk/lib/msgs/de.msg']:
     require => Package['git-gui'],
 }
 
+package { 'git-flow':
+  ensure => 'installed',
+  require => Package['git']
+}
+
 package { 'atom':
   ensure => 'installed'
 }
