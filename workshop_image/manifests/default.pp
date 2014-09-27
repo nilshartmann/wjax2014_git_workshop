@@ -44,6 +44,11 @@ package { 'git-gui':
   require => Package['git'],
 }
 
+package { 'git-cola':
+  ensure => 'installed',
+  require => Package['git-cola'],
+}
+
 file { ['/usr/share/git-gui/lib/msgs/de.msg','/usr/share/gitk/lib/msgs/de.msg']:
     ensure  => absent,
     require => Package['git-gui'],
