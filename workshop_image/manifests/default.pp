@@ -49,6 +49,12 @@ package { 'git-cola':
   require => Package['git'],
 }
 
+# Grafisches Mergetool
+package { 'meld':
+  ensure => 'installed',
+  require => Package['git']
+}
+
 file { ['/usr/share/git-gui/lib/msgs/de.msg','/usr/share/gitk/lib/msgs/de.msg']:
     ensure  => absent,
     require => Package['git-gui'],
