@@ -46,7 +46,7 @@ package { 'git-gui':
 
 package { 'git-cola':
   ensure => 'installed',
-  require => Package['git-cola'],
+  require => Package['git'],
 }
 
 file { ['/usr/share/git-gui/lib/msgs/de.msg','/usr/share/gitk/lib/msgs/de.msg']:
