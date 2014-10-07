@@ -6,6 +6,10 @@ Git internas
  * Object-Database und Inhalt zeigen [Rene]
  * Blob, Tree, Commit [Rene]
  * cat-file -p [Rene]
+
+
+    ### UEBUNG
+
  * Umbenennen verstehen [Rene]
     (ggf Umbenennen von Groß-/Kleinschreibung)
  * git log kennenlernen [Rene]
@@ -17,6 +21,9 @@ Git internas
     * show-ref -> für die vollständigen Ref-Namen -> Hinweis auf die Ref-Dateien im .git Verzeichnis
     * HEAD-Datei -> als symbolisches Ref zeigen -> detached HEAD als Spezialfall zeigen
     * show-ref --dereference -> für Annotated Tags
+
+
+    
 
  * Merge [Nils]
     * merge, merge-base, merge-file
@@ -35,6 +42,7 @@ Git internas
     * fetch -> ohne benanntes Remote -> FETCH_HEAD
     * pull -> pull.rebase -> branch.autosetuprebase
 
+ ## UEBUNG: 	 Remote anlegen + Refspec in zweites Repository pushen
 
 1,5h
 Welche Branch-Strategie passt am besten zu Ihrem Projekt?
@@ -44,7 +52,7 @@ Wie können Sie mit Rebasing eine "schöne" Historie erzeugen?
  - Annahme: es gibt ein Remote-Repository
  - Merge vs Rebase (Interaktiv)
  - Pullrequest / Review
- - Übung interaktives Rebasing (Puzzle)
+ - ÜBUNG interaktives Rebasing (Puzzle)
 
 (0,75h) Wie sieht der RELEASEprozess? [Nils]
  - Durchlaufende Branches + Bugfixes (GitFlow)
@@ -56,7 +64,7 @@ Wie können Sie mit Rebasing eine "schöne" Historie erzeugen?
  - Übung: Release untersuchen, z.B. "Erzeugen Sie ein Releasenotes für Release XYZ", "Prüfen Sie, ob Bugfix XY im Release ZZZ vorhanden sind", "Stellen Sie sicher, dass Bugfix ??? im kommenden Release enthalten ist"
 
 1h
-Wie verwenden Sie Submodules oder Subtrees dazu, andere Projekte einzubinden? [Rene]
+  Wie verwenden Sie Submodules oder Subtrees dazu, andere Projekte einzubinden? [Rene]
 - In Java eher selten die Notwendigkeit, Sourcen aus anderen Projekten einzubinden bzw wird über andere Tools erledigt (Maven z.B.)
 - Historisch wo kommt das her? In der Praxis eher in C/C++ relevant.
 - Große Repositories aufteilen, weil sie sonst zu langsam werden
@@ -65,8 +73,8 @@ Wie verwenden Sie Submodules oder Subtrees dazu, andere Projekte einzubinden? [R
 * (Write-Tree -> Experte)
 - Praxis-Beispiel: Bootstrap Repository in Java Webanwendung einbinden [Nils]
    - Zwei "äußere" Repositories, zeigen auf selbes Bootstrap-Repository
-* Übung: jeweils mit subtree und submodule im "eingebunden" repository Änderung machen und committen
 
+# Übung Nils: Submodule/tree einbinden, änderung im eingebundenen Repo machen, zurück spielen
 
 1h
 Git APIs: Alternativen zu Git Bash
@@ -77,12 +85,15 @@ Git APIs: Alternativen zu Git Bash
    - Merge
    - Push
    - Wenn Push nicht geht, Reset hard ausführen
+ # Beispiel macht Rene
 
 0,5h
 Wie setzen Sie Git mit Build-Tools wie Maven [Nils] und Gradle [Rene] ein?
 * Release Plugin Maven und Gradle
 * Versionsgestaltung
 - keine Übung, Beispiele vorbereiten, die wir ausführen
+
+
 
 ======== OPTIONALE THEMEN ================================
 
