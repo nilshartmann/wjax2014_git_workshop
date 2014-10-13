@@ -1,0 +1,13 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'eclipse'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+  compile 'org.eclipse.jgit:org.eclipse.jgit:3.5.0.201409260305-r'
+  testCompile 'org.eclipse.jgit:org.eclipse.jgit.junit:3.5.0.201409260305-r'
+  testCompile 'junit:junit:4.11'
+}
