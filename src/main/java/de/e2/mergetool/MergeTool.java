@@ -94,21 +94,25 @@ public class MergeTool implements Closeable{
     }
 
     void cleanRepo() throws GitAPIException {
-        //TODO clean the repo from untracked files and directories
+        git.clean().setCleanDirectories(true).call();
     }
 
     void fetchAllBranches() throws IOException, GitAPIException {
-        //TODO Fetch all branches
+        git.fetch().call();
     }
 
     void resetLocalDestBranchToRemoteDestBranch() throws IOException, GitAPIException {
-        //TODO Reset the local destination Branch, e.g. master to the remote destination Branch, e.g. origin/master
+        git.reset().setMode(ResetCommand.ResetType.HARD).call();
+        git.checkout().setName(localDestBranch).call();
+        git.reset().setMode(ResetCommand.ResetType.HARD).setRef(remoteDestBranch).call();
     }
 
     boolean mergeRemoteSrcBranchIntoLocalDestBranch() throws IOException, GitAPIException {
-        //TODO Merge the remote source Branch, e.g. int into the local destination branch, e.g. master
-        //TODO return true if the merge was successful
-        return false;
+        git.reset().setMode(ResetCommand.ResetType.HARD).call();
+        git.checkout().setName(localDestBranch).call();
+        Ref remoteFromBranchRef = git.getRepository().getRef(remoteSrcBranch);
+        MergeResult mergeResult = git.merge().include(remoteFromBranchRef).call();
+        return mergeResult.getMergeStatus().isSuccessful();
     }
 
     private boolean pushLocalDestBranch() throws GitAPIException {
