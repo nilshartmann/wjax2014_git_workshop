@@ -24,6 +24,10 @@ class CloneSubRepoTask extends DefaultTask {
     @Optional
     String defaultBranch = 'master'
 
+    @Optional
+    @Input
+    Boolean withRemoteBranches = false
+
     @Input
     @Optional
     Boolean cloneBare
@@ -61,7 +65,7 @@ class CloneSubRepoTask extends DefaultTask {
 
         StoredConfig config = repo.repository.jgit.getRepository().getConfig()
         config.setString("remote", "origin", "url", repoUrl)
-        if(cloneBare)
+        if(cloneBare || !withRemoteBranches)
         {
             config.setStringList("remote", "origin", "fetch", ["+refs/heads/$prefix*:refs/heads/*".toString(),"+refs/tags/$prefix*:refs/tags/*".toString()])
             config.setStringList("remote", "origin", "push", ["refs/heads/*:refs/heads/$prefix*".toString(),"refs/tags/*:refs/tags/$prefix*".toString()])
@@ -83,7 +87,10 @@ class CloneSubRepoTask extends DefaultTask {
         System.properties.'org.ajoberstar.grgit.auth.password' = ''
 
         if(!cloneBare) {
-            repo.branch.add(name: defaultBranch, startPoint: "origin/$defaultBranch", mode: BranchAddOp.Mode.TRACK)
+            if(withRemoteBranches) {
+              repo.branch.add(name: defaultBranch, startPoint: "origin/$defaultBranch", mode: BranchAddOp.Mode.TRACK)
+            }
+
             repo.checkout(branch: defaultBranch)
             //The checkout in an empty repo does not change the workspace
             repo.reset(commit: 'HEAD', mode: ResetOp.Mode.HARD)

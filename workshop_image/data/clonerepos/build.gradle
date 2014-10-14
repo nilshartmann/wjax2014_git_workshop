@@ -16,6 +16,31 @@ task einstieg (type: de.e2.wjax.CloneSubRepoTask) {
   prefix='examples/einstieg/'
 }
 
+task mergetool (type: de.e2.wjax.CloneSubRepoTask) {
+  repoUrl='https://bitbucket.org/nilshartmann/wjax2014_git_workshop.git'
+  prefix='examples/mergetool/'
+}
+
+task 'rebase-org' (type: de.e2.wjax.CloneSubRepoTask) {
+  repoUrl='https://bitbucket.org/nilshartmann/wjax2014_git_workshop.git'
+  prefix='examples/rebase/'
+}
+
+task 'rebase-1' (type: de.e2.wjax.CloneSubRepoTask) {
+  repoUrl='https://bitbucket.org/nilshartmann/wjax2014_git_workshop.git'
+  prefix='examples/rebase/'
+}
+
+task 'rebase-2' (type: de.e2.wjax.CloneSubRepoTask) {
+  repoUrl='https://bitbucket.org/nilshartmann/wjax2014_git_workshop.git'
+  prefix='examples/rebase/'
+}
+
+task 'rebase-3' (type: de.e2.wjax.CloneSubRepoTask) {
+  repoUrl='https://bitbucket.org/nilshartmann/wjax2014_git_workshop.git'
+  prefix='examples/rebase/'
+}
+
 
 task 'release-townsfolk-raw.git' (type: de.e2.wjax.CloneSubRepoTask) {
     repoUrl='https://bitbucket.org/nilshartmann/wjax2014_git_workshop.git'
@@ -24,6 +49,7 @@ task 'release-townsfolk-raw.git' (type: de.e2.wjax.CloneSubRepoTask) {
 
 task 'release-townsfolk-raw' (type: de.e2.wjax.CloneSubRepoTask, dependsOn: 'release-townsfolk-raw.git') {
     repoUrl="../release-townsfolk-raw.git"
+    withRemoteBranches=true
 }
 
 task 'release-townsfolk-tasks.git' (type: de.e2.wjax.CloneSubRepoTask) {
@@ -33,6 +59,7 @@ task 'release-townsfolk-tasks.git' (type: de.e2.wjax.CloneSubRepoTask) {
 
 task 'release-townsfolk-tasks' (type: de.e2.wjax.CloneSubRepoTask, dependsOn: 'release-townsfolk-tasks.git') {
     repoUrl="../release-townsfolk-tasks.git"
+    withRemoteBranches=true
 }
 
 task 'release-ajoberstar.git' (type: de.e2.wjax.CloneSubRepoTask) {
@@ -42,4 +69,5 @@ task 'release-ajoberstar.git' (type: de.e2.wjax.CloneSubRepoTask) {
 
 task 'release-ajoberstar' (type: de.e2.wjax.CloneSubRepoTask, dependsOn: 'release-ajoberstar.git') {
     repoUrl="../release-ajoberstar.git"
+    withRemoteBranches=true
 }
