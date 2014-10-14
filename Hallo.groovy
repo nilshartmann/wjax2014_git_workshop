@@ -5,5 +5,6 @@ class Hallo {
 
   static void master() {
     println "M1"
+    println "M2"
   }
 }
