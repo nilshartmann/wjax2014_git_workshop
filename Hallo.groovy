@@ -2,6 +2,7 @@ class Hallo {
   static void feature() {
     println "f1"
     println "f2"
+    println "f3"
   }
 
   static void main(String[] args) {
