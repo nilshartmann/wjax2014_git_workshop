@@ -3,6 +3,7 @@ class Hallo {
     println "f1"
     println "f2"
     println "f3"
+    println "f4"
   }
 
   static void main(String[] args) {
