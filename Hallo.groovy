@@ -8,5 +8,6 @@ class Hallo {
     println "M2"
     println "M3"
     println "M4"
+    println "M5"
   }
 }
