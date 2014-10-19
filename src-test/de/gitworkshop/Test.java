@@ -2,5 +2,7 @@
 package de.gitworkshop;
 public class Test extends TestCase {
 	@Test
- public void myTest() { }
+    public void myTest() { 
+		assertTrue(true);
+	}
 }
