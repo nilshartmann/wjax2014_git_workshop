@@ -11,63 +11,120 @@ tasks.withType(de.e2.wjax.CloneSubRepoTask) {
   all.dependsOn(it)
 }
 
-task einstieg (type: de.e2.wjax.CloneSubRepoTask) {
+task 'interna/einstieg' (type: de.e2.wjax.CloneSubRepoTask) {
   repoUrl='https://bitbucket.org/nilshartmann/wjax2014_git_workshop.git'
   prefix='examples/einstieg/'
 }
 
-task mergetool (type: de.e2.wjax.CloneSubRepoTask) {
+task 'api/mergetool' (type: de.e2.wjax.CloneSubRepoTask) {
   repoUrl='https://bitbucket.org/nilshartmann/wjax2014_git_workshop.git'
   prefix='examples/mergetool/'
 }
 
-task 'rebase-org' (type: de.e2.wjax.CloneSubRepoTask) {
+task 'rebase/rebase-org' (type: de.e2.wjax.CloneSubRepoTask) {
   repoUrl='https://bitbucket.org/nilshartmann/wjax2014_git_workshop.git'
   prefix='examples/rebase/'
 }
 
-task 'rebase-1' (type: de.e2.wjax.CloneSubRepoTask) {
+task 'rebase/rebase-1' (type: de.e2.wjax.CloneSubRepoTask) {
   repoUrl='https://bitbucket.org/nilshartmann/wjax2014_git_workshop.git'
   prefix='examples/rebase/'
 }
 
-task 'rebase-2' (type: de.e2.wjax.CloneSubRepoTask) {
+task 'rebase/rebase-2' (type: de.e2.wjax.CloneSubRepoTask) {
   repoUrl='https://bitbucket.org/nilshartmann/wjax2014_git_workshop.git'
   prefix='examples/rebase/'
 }
 
-task 'rebase-3' (type: de.e2.wjax.CloneSubRepoTask) {
+task 'rebase/rebase-3' (type: de.e2.wjax.CloneSubRepoTask) {
   repoUrl='https://bitbucket.org/nilshartmann/wjax2014_git_workshop.git'
   prefix='examples/rebase/'
 }
 
 
-task 'release-townsfolk-raw.git' (type: de.e2.wjax.CloneSubRepoTask) {
+task 'build/release-townsfolk-raw.git' (type: de.e2.wjax.CloneSubRepoTask) {
     repoUrl='https://bitbucket.org/nilshartmann/wjax2014_git_workshop.git'
     prefix='examples/release-townsfolk-raw/'
 }
 
-task 'release-townsfolk-raw' (type: de.e2.wjax.CloneSubRepoTask, dependsOn: 'release-townsfolk-raw.git') {
+task 'build/release-townsfolk-raw' (type: de.e2.wjax.CloneSubRepoTask, dependsOn: 'build/release-townsfolk-raw.git') {
     repoUrl="../release-townsfolk-raw.git"
     withRemoteBranches=true
 }
 
-task 'release-townsfolk-tasks.git' (type: de.e2.wjax.CloneSubRepoTask) {
+task 'build/release-townsfolk-tasks.git' (type: de.e2.wjax.CloneSubRepoTask) {
     repoUrl='https://bitbucket.org/nilshartmann/wjax2014_git_workshop.git'
     prefix='examples/release-townsfolk-tasks/'
 }
 
-task 'release-townsfolk-tasks' (type: de.e2.wjax.CloneSubRepoTask, dependsOn: 'release-townsfolk-tasks.git') {
+task 'build/release-townsfolk-tasks' (type: de.e2.wjax.CloneSubRepoTask, dependsOn: 'build/release-townsfolk-tasks.git') {
     repoUrl="../release-townsfolk-tasks.git"
     withRemoteBranches=true
 }
 
-task 'release-ajoberstar.git' (type: de.e2.wjax.CloneSubRepoTask) {
+task 'build/release-ajoberstar.git' (type: de.e2.wjax.CloneSubRepoTask) {
     repoUrl='https://bitbucket.org/nilshartmann/wjax2014_git_workshop.git'
     prefix='examples/release-ajoberstar/'
 }
 
-task 'release-ajoberstar' (type: de.e2.wjax.CloneSubRepoTask, dependsOn: 'release-ajoberstar.git') {
+task 'build/release-ajoberstar' (type: de.e2.wjax.CloneSubRepoTask, dependsOn: 'build/release-ajoberstar.git') {
     repoUrl="../release-ajoberstar.git"
     withRemoteBranches=true
+}
+
+task 'merges/10_ff-noff' (type: de.e2.wjax.CloneSubRepoTask) {
+    repoUrl='https://bitbucket.org/nilshartmann/wjax2014_git_workshop.git'
+    prefix='examples/merges/10_ff-noff/'
+}
+
+task 'merges/20_first-parent' (type: de.e2.wjax.CloneSubRepoTask) {
+    repoUrl='https://bitbucket.org/nilshartmann/wjax2014_git_workshop.git'
+    prefix='examples/merges/20_first_parent/'
+}
+
+task 'merges/25_squash' (type: de.e2.wjax.CloneSubRepoTask) {
+    repoUrl='https://bitbucket.org/nilshartmann/wjax2014_git_workshop.git'
+    prefix='examples/merges/25_squash/'
+}
+
+task 'merges/30_merge-base' (type: de.e2.wjax.CloneSubRepoTask) {
+    repoUrl='https://bitbucket.org/nilshartmann/wjax2014_git_workshop.git'
+    prefix='examples/merges/30_merge-base/'
+}
+
+task 'merges/30_merge-base-complex' (type: de.e2.wjax.CloneSubRepoTask) {
+    repoUrl='https://bitbucket.org/nilshartmann/wjax2014_git_workshop.git'
+    prefix='examples/merges/30_merge-base-complex/'
+}
+
+task 'merges/40_conflicts' (type: de.e2.wjax.CloneSubRepoTask) {
+    repoUrl='https://bitbucket.org/nilshartmann/wjax2014_git_workshop.git'
+    prefix='examples/merges/40_conflicts/'
+}
+
+task 'build/maven-rel-plugin/web-application.git' (type: de.e2.wjax.CloneSubRepoTask) {
+    repoUrl='https://bitbucket.org/nilshartmann/wjax2014_git_workshop.git'
+    prefix='examples/build/web-application/'
+}
+
+task 'gitflow/10_simple' (type: de.e2.wjax.CloneSubRepoTask) {
+    repoUrl='https://bitbucket.org/nilshartmann/wjax2014_git_workshop.git'
+    prefix='examples/gitflow/10_simple/'
+}
+
+
+task 'refspecs/remoteRepoEins.git' (type: de.e2.wjax.CloneSubRepoTask) {
+    repoUrl='https://bitbucket.org/nilshartmann/wjax2014_git_workshop.git'
+    prefix='examples/refspecs/remoteRepoEins/'
+}
+
+
+task 'remotes/mein-spring-klon.git' (type: de.e2.wjax.CloneSubRepoTask) {
+    repoUrl='https://bitbucket.org/nilshartmann/wjax2014_git_workshop.git'
+    prefix='examples/remotes/mein-spring-klon/'
+}
+
+task 'remotes/spring.git' (type: de.e2.wjax.CloneSubRepoTask) {
+    repoUrl='https://bitbucket.org/nilshartmann/wjax2014_git_workshop.git'
+    prefix='examples/remotes/spring/'
 }

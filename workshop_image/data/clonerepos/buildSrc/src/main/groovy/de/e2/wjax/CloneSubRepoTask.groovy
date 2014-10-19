@@ -58,6 +58,7 @@ class CloneSubRepoTask extends DefaultTask {
         }
 
         def repoDir = getRepoDir()
+        repoDir.parentFile.mkdirs()
 
         if (deleteTargetDir) project.delete repoDir
 
