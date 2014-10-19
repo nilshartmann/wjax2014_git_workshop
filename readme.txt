@@ -7,3 +7,6 @@ FEATURE-1: 3. Commit
 FEATURE-2: 1. Commit
 FEATURE-2: 2. Commit
 FEATURE-2: 3. Commit
+FEATURE-3: 1. Commit
+FEATURE-3: 2. Commit
+FEATURE-3: 3. Commit
