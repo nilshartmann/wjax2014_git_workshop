@@ -102,7 +102,7 @@ file { "/home/vagrant/.ssh":
 ####### Eclipse ######################################
 archive { 'eclipse':
   ensure => present,
-  url    => 'http://mirror.selfnet.de/eclipse/technology/epp/downloads/release/luna/R/eclipse-java-luna-R-linux-gtk.tar.gz',
+  url    => 'http://mirror.selfnet.de/eclipse/technology/epp/downloads/release/luna/SR1/eclipse-java-luna-SR1-linux-gtk.tar.gz',
   target => '/opt',
   checksum => false,
   timeout => 0,
