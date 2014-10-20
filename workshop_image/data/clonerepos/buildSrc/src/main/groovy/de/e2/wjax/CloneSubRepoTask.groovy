@@ -90,6 +90,9 @@ class CloneSubRepoTask extends DefaultTask {
         if(!cloneBare) {
             if(withRemoteBranches) {
               repo.branch.add(name: defaultBranch, startPoint: "origin/$defaultBranch", mode: BranchAddOp.Mode.TRACK)
+            } else {
+                config.unsetSection("remote","origin")
+                config.save()
             }
 
             repo.checkout(branch: defaultBranch)
