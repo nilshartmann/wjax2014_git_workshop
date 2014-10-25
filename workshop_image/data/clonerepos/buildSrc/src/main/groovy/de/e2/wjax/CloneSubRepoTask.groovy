@@ -116,17 +116,24 @@ class CloneSubRepoTask extends DefaultTask {
         repo.close()
 
         if(runGradleTask) {
-            def gradleLauncherFactory = getServices().get(GradleLauncherFactory.class)
-            def startParameter = getServices().get(StartParameter.class).newBuild()
-            def cancellationToken = getServices().get(BuildCancellationToken.class);
-            startParameter.setCurrentDir(repoDir)
-            startParameter.setTaskNames([runGradleTask])
-            GradleLauncher launcher = gradleLauncherFactory.newInstance(startParameter,cancellationToken);
-            try {
-                launcher.run()
-            } finally {
-                launcher.stop()
-            }
+            def execActionFactory = getServices().get(ExecActionFactory.class)
+            def execAction = execActionFactory.newExecAction()
+            execAction.setWorkingDir(repoDir)
+            execAction.setCommandLine("./gradlew",runGradleTask)
+            execAction.setIgnoreExitValue(true)
+            execAction.execute()
+
+//            def gradleLauncherFactory = getServices().get(GradleLauncherFactory.class)
+//            def startParameter = getServices().get(StartParameter.class).newBuild()
+//            def cancellationToken = getServices().get(BuildCancellationToken.class);
+//            startParameter.setCurrentDir(repoDir)
+//            startParameter.setTaskNames([runGradleTask])
+//            GradleLauncher launcher = gradleLauncherFactory.newInstance(startParameter,cancellationToken);
+//            try {
+//                launcher.run()
+//            } finally {
+//                launcher.stop()
+//            }
         }
 
         if(runMavenTask) {
@@ -134,6 +141,7 @@ class CloneSubRepoTask extends DefaultTask {
             def execAction = execActionFactory.newExecAction()
             execAction.setWorkingDir(repoDir)
             execAction.setCommandLine("mvn",runMavenTask)
+            execAction.setIgnoreExitValue(true)
             execAction.execute()
         }
     }
