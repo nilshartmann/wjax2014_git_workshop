@@ -1,11 +1,15 @@
 package de.e2.wjax
 
+import org.gradle.StartParameter
 import org.gradle.api.*
 import org.gradle.api.tasks.*
 import org.ajoberstar.grgit.*
 import org.eclipse.jgit.lib.*
 import org.eclipse.jgit.api.*
 import org.ajoberstar.grgit.operation.*
+import org.gradle.initialization.GradleLauncher
+import org.gradle.initialization.GradleLauncherFactory
+import org.gradle.process.internal.ExecActionFactory
 
 class CloneSubRepoTask extends DefaultTask {
     @Optional
@@ -39,6 +43,15 @@ class CloneSubRepoTask extends DefaultTask {
     @Input
     @Optional
     String repoPassword
+
+    @Input
+    @Optional
+    String runGradleTask
+
+    @Input
+    @Optional
+    String runMavenTask
+
 
     File getRepoDir() {
         return new File(new File(project.repoDirRoot), targetDir)
@@ -100,5 +113,26 @@ class CloneSubRepoTask extends DefaultTask {
             repo.reset(commit: 'HEAD', mode: ResetOp.Mode.HARD)
         }
         repo.close()
+
+        if(runGradleTask) {
+            def gradleLauncherFactory = getServices().get(GradleLauncherFactory.class)
+            def startParameter = getServices().get(StartParameter.class).newBuild()
+            startParameter.setCurrentDir(repoDir)
+            startParameter.setTaskNames([runGradleTask])
+            GradleLauncher launcher = gradleLauncherFactory.newInstance(startParameter);
+            try {
+                launcher.run()
+            } finally {
+                launcher.stop()
+            }
+        }
+
+        if(runMavenTask) {
+            def execActionFactory = getServices().get(ExecActionFactory.class)
+            def execAction = execActionFactory.newExecAction()
+            execAction.setWorkingDir(repoDir)
+            execAction.setCommandLine("mvn",runMavenTask)
+            execAction.execute()
+        }
     }
 }

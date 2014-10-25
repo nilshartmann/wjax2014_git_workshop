@@ -19,6 +19,7 @@ task 'interna/einstieg' (type: de.e2.wjax.CloneSubRepoTask) {
 task 'api/mergetool' (type: de.e2.wjax.CloneSubRepoTask) {
   repoUrl='https://bitbucket.org/nilshartmann/wjax2014_git_workshop.git'
   prefix='examples/mergetool/'
+  runGradleTask='build'
 }
 
 task 'rebase/rebase-org' (type: de.e2.wjax.CloneSubRepoTask) {
@@ -50,6 +51,7 @@ task 'build/release-townsfolk-raw.git' (type: de.e2.wjax.CloneSubRepoTask) {
 task 'build/release-townsfolk-raw' (type: de.e2.wjax.CloneSubRepoTask, dependsOn: 'build/release-townsfolk-raw.git') {
     repoUrl="../release-townsfolk-raw.git"
     withRemoteBranches=true
+    runGradleTask='build'
 }
 
 task 'build/release-townsfolk-tasks.git' (type: de.e2.wjax.CloneSubRepoTask) {
@@ -60,6 +62,7 @@ task 'build/release-townsfolk-tasks.git' (type: de.e2.wjax.CloneSubRepoTask) {
 task 'build/release-townsfolk-tasks' (type: de.e2.wjax.CloneSubRepoTask, dependsOn: 'build/release-townsfolk-tasks.git') {
     repoUrl="../release-townsfolk-tasks.git"
     withRemoteBranches=true
+    runGradleTask='build'
 }
 
 task 'build/release-ajoberstar.git' (type: de.e2.wjax.CloneSubRepoTask) {
@@ -70,6 +73,7 @@ task 'build/release-ajoberstar.git' (type: de.e2.wjax.CloneSubRepoTask) {
 task 'build/release-ajoberstar' (type: de.e2.wjax.CloneSubRepoTask, dependsOn: 'build/release-ajoberstar.git') {
     repoUrl="../release-ajoberstar.git"
     withRemoteBranches=true
+    runGradleTask='build'
 }
 
 task 'merges/10_ff-noff' (type: de.e2.wjax.CloneSubRepoTask) {
@@ -106,6 +110,13 @@ task 'build/maven-rel-plugin/web-application.git' (type: de.e2.wjax.CloneSubRepo
     repoUrl='https://bitbucket.org/nilshartmann/wjax2014_git_workshop.git'
     prefix='examples/build/web-application/'
 }
+/*
+task 'build/maven-rel-plugin/web-application' (type: de.e2.wjax.CloneSubRepoTask, dependsOn: 'build/maven-rel-plugin/web-application.git') {
+    repoUrl="../web-application.git"
+    withRemoteBranches=true
+    runMavenTask='package'
+}
+*/
 
 task 'gitflow/10_simple' (type: de.e2.wjax.CloneSubRepoTask) {
     repoUrl='https://bitbucket.org/nilshartmann/wjax2014_git_workshop.git'
