@@ -8,4 +8,17 @@ VM unter Windows 7:
  - vagrant/puppet Shared-Folder nicht gefunden (Lösung: einfach entfernen)
  - Zuviel Hauptspeicher (auf dem Notebook nur 4GB, dafür waren die konfigurierten 2,xGB zuviel)
 
+===================================
+Maven und Gradle ausführen
+ - in allen Repositories, in denen es .gradle bzw pom.xml-Datei gibt
+   mvn clean install
+   mvn jgitflow:release-start 
+   mvn release:prepare
+   mvn release:perform
+   mvn jetty:run
+
+   gradle jettyRun
+
+Maven-SCM-Verzeichnis anlegen und in den build-Beispielrepos in die pom.xml-
+  Datei eintragen
 
