@@ -7,6 +7,7 @@ import org.ajoberstar.grgit.*
 import org.eclipse.jgit.lib.*
 import org.eclipse.jgit.api.*
 import org.ajoberstar.grgit.operation.*
+import org.gradle.initialization.BuildCancellationToken
 import org.gradle.initialization.GradleLauncher
 import org.gradle.initialization.GradleLauncherFactory
 import org.gradle.process.internal.ExecActionFactory
@@ -117,9 +118,10 @@ class CloneSubRepoTask extends DefaultTask {
         if(runGradleTask) {
             def gradleLauncherFactory = getServices().get(GradleLauncherFactory.class)
             def startParameter = getServices().get(StartParameter.class).newBuild()
+            def cancellationToken = getServices().get(BuildCancellationToken.class);
             startParameter.setCurrentDir(repoDir)
             startParameter.setTaskNames([runGradleTask])
-            GradleLauncher launcher = gradleLauncherFactory.newInstance(startParameter);
+            GradleLauncher launcher = gradleLauncherFactory.newInstance(startParameter,cancellationToken);
             try {
                 launcher.run()
             } finally {
