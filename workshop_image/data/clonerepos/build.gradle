@@ -149,7 +149,7 @@ task 'remotes/spring.git' (type: de.e2.wjax.CloneSubRepoTask) {
 
 
 task 'submodule_subtree/submodule/bootstrap.git' (type: de.e2.wjax.CloneSubRepoTask) {
-  repoUrl='file:///Users/nils/develop/wjax2014_git_workshop/tmp/wjax2014_git_workshop'
+  repoUrl='https://bitbucket.org/nilshartmann/wjax2014_git_workshop.git'
   prefix='examples/submodule_subtree/submodule/bootstrap/'
 }
 
