@@ -49,6 +49,39 @@ task 'rebase/rebase-3' (type: de.e2.wjax.CloneSubRepoTask) {
   prefix='examples/rebase/'
 }
 
+task 'branches/common-merge.git' (type: de.e2.wjax.CloneSubRepoTask) {
+    repoUrl='https://bitbucket.org/nilshartmann/wjax2014_git_workshop.git'
+    prefix='examples/branches/merge/'
+}
+
+task 'branches/common-merge' (type: de.e2.wjax.CloneSubRepoTask, dependsOn: 'branches/common-merge.git') {
+    repoUrl="../common-merge.git"
+    withRemoteBranches=true
+    runGradleTask='build'
+}
+
+task 'branches/common-rebase.git' (type: de.e2.wjax.CloneSubRepoTask) {
+    repoUrl='https://bitbucket.org/nilshartmann/wjax2014_git_workshop.git'
+    prefix='examples/branches/rebase/'
+}
+
+task 'branches/common-rebase' (type: de.e2.wjax.CloneSubRepoTask, dependsOn: 'branches/common-rebase.git') {
+    repoUrl="../common-rebase.git"
+    withRemoteBranches=true
+    runGradleTask='build'
+}
+
+task 'branches/feature-branch.git' (type: de.e2.wjax.CloneSubRepoTask) {
+    repoUrl='https://bitbucket.org/nilshartmann/wjax2014_git_workshop.git'
+    prefix='examples/branches/feature/'
+}
+
+task 'branches/feature-branch' (type: de.e2.wjax.CloneSubRepoTask, dependsOn: 'branches/feature-branch.git') {
+    repoUrl="../feature-branch.git"
+    withRemoteBranches=true
+    runGradleTask='build'
+}
+
 
 task 'build/release-townsfolk-raw.git' (type: de.e2.wjax.CloneSubRepoTask) {
     repoUrl='https://bitbucket.org/nilshartmann/wjax2014_git_workshop.git'
