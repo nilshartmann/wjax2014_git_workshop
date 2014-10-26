@@ -24,6 +24,11 @@ task 'api/mergetool' (type: de.e2.wjax.CloneSubRepoTask) {
   runGradleTask='build'
 }
 
+task 'api/rugged' (type: de.e2.wjax.CloneSubRepoTask) {
+    repoUrl='https://bitbucket.org/nilshartmann/wjax2014_git_workshop.git'
+    prefix='examples/api/rugged/'
+}
+
 task 'rebase/rebase-org' (type: de.e2.wjax.CloneSubRepoTask) {
   repoUrl='https://bitbucket.org/nilshartmann/wjax2014_git_workshop.git'
   prefix='examples/rebase/'
