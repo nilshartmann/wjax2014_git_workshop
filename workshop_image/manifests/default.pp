@@ -125,7 +125,16 @@ exec { "get all repos":
   cwd => "/vagrant/data/clonerepos",
   user => "vagrant",
   command => "/usr/bin/gradle -PrepoDirRoot=/home/vagrant/repos all",
-  require => Package['gradle'],
+  require => [Package['git'], Package['maven'], Package['gradle']],
+}
+
+###### Initiales Laden der Maven-Dependencies sowie einrichten der 
+######  Maven- und Git "Release" Repositories
+exec { "init maven and gradle dependencies":
+	cwd => "/tmp",
+	user => "vagrant",
+	command => "/vagrant/data/init-maven-and-gradle.sh",
+	require => Exec['get all repos']
 }
 
 ###### Desktop Verknüpfungen #############################
