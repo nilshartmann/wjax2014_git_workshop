@@ -6,12 +6,12 @@ clone      Clone a repository into a new directory.
 commit     Record changes to the repository.
 diff       Show changes between commits, commit and working tree, etc.
 fetch      Download objects and refs from another repository.
-grep       Print lines matching a pattern
-init       Create an empty Git repository or reinitialize an existing one
-log        Show commit logs
-merge      Join two or more development histories together
-mv         Move or rename a file, a directory, or a symlink
-pull       Fetch from and integrate with another repository or a local branch
+grep       Print lines matching a pattern.
+init       Create an empty Git repository or reinitialize an existing one.
+log        Show commit logs.
+merge      Join two or more development histories together.
+mv         Move or rename a file, a directory, or a symlink.
+pull       Fetch from and integrate with another repository or a local branch.
 push       Update remote refs along with associated objects
 rebase     Forward-port local commits to the updated upstream head
 reset      Reset current HEAD to the specified state
