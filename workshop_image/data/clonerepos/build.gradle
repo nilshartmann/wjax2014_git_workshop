@@ -115,7 +115,7 @@ task 'merges/40_conflicts' (type: de.e2.wjax.CloneSubRepoTask) {
 
 task 'build/maven-rel-plugin/web-application.git' (type: de.e2.wjax.CloneSubRepoTask) {
     repoUrl='https://bitbucket.org/nilshartmann/wjax2014_git_workshop.git'
-    prefix='examples/build/web-application/'
+    prefix='examples/build/maven-rel-plugin/web-application/'
 }
 /*
 task 'build/maven-rel-plugin/web-application' (type: de.e2.wjax.CloneSubRepoTask, dependsOn: 'build/maven-rel-plugin/web-application.git') {
