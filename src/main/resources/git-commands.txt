@@ -1,6 +1,6 @@
-add        Add file contents to the index
-bisect     Find by binary search the change that introduced a bug
-branch     List, create, or delete branches
+add        Add file contents to the index.
+bisect     Find by binary search the change that introduced a bug.
+branch     List, create, or delete branches.
 checkout   Checkout a branch or paths to the working tree
 clone      Clone a repository into a new directory
 commit     Record changes to the repository
