@@ -10,9 +10,11 @@
 <body>
 	<div class="container">
 
+
 		<div class="page-header">
 			<h1>Git Commands</h1>
 		</div>
+
 
 		<p>The most commonly used git commands are:</p>
 		<table class="table table-striped">
@@ -35,7 +37,7 @@
 		</table>
 	</div>
 
-	
+
 
 	<div class="well">
 		<jsp:useBean class="de.gitworkshop.web.WebAppEnvInfo" id="webAppEnvInfoBean">
