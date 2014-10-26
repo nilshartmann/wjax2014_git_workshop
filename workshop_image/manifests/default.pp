@@ -126,6 +126,7 @@ exec { "get all repos":
   user => "vagrant",
   command => "/usr/bin/gradle -PrepoDirRoot=/home/vagrant/repos all",
   require => [Package['git'], Package['maven'], Package['gradle']],
+  timeout => 0
 }
 
 ###### Initiales Laden der Maven-Dependencies sowie einrichten der 
