@@ -11,6 +11,8 @@ tasks.withType(de.e2.wjax.CloneSubRepoTask) {
   all.dependsOn(it)
 }
 
+
+
 task 'interna/einstieg' (type: de.e2.wjax.CloneSubRepoTask) {
   repoUrl='https://bitbucket.org/nilshartmann/wjax2014_git_workshop.git'
   prefix='examples/einstieg/'
@@ -139,3 +141,22 @@ task 'remotes/spring.git' (type: de.e2.wjax.CloneSubRepoTask) {
     repoUrl='https://bitbucket.org/nilshartmann/wjax2014_git_workshop.git'
     prefix='examples/remotes/spring/'
 }
+
+
+task 'submodule_subtree/submodule/bootstrap.git' (type: de.e2.wjax.CloneSubRepoTask) {
+  repoUrl='file:///Users/nils/develop/wjax2014_git_workshop/tmp/wjax2014_git_workshop'
+  prefix='examples/submodule_subtree/submodule/bootstrap/'
+}
+
+task 'submodule_subtree/submodule/web-application.git' (type: de.e2.wjax.CloneSubRepoTask) {
+  repoUrl='https://bitbucket.org/nilshartmann/wjax2014_git_workshop.git'
+  prefix='examples/submodule_subtree/submodule/web-application/'
+}
+/*
+task 'submodule_subtree/submodule/web-application' (type: de.e2.wjax.CloneSubRepoTask, dependsOn: 'submodule_subtree/submodule/web-application.git') {
+    repoUrl="../web-application.git"
+    runGradleTask='jettyRunDaemon'
+}
+*/
+
+
