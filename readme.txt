@@ -37,3 +37,4 @@ feature/migrateToJava8: 1. Commit
 feature/migrateToJava8: 2. Commit
 feature/migrateToJava8: 3. Commit
 feature/migrateToJava8: 4. Commit
+feature/migrateToJava8: 5. Commit
