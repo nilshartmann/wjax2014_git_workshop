@@ -10,3 +10,6 @@ feature/improveSecurity: 3. Commit
 feature/replaceMavenWithGradle: 1. Commit
 feature/replaceMavenWithGradle: 2. Commit
 feature/replaceMavenWithGradle: 3. Commit
+feature/upgradeSpringVersion: 1. Commit
+feature/upgradeSpringVersion: 2. Commit
+feature/upgradeSpringVersion: 3. Commit
