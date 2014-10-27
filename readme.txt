@@ -10,3 +10,4 @@ feature/enhancePrivacyOptions: 3. Commit
 feature/fixTransactionBehaviour: 1. Commit
 feature/fixTransactionBehaviour: 2. Commit
 feature/fixTransactionBehaviour: 3. Commit
+feature/implementPrivateMessages: 1. Commit
