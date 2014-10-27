@@ -31,3 +31,4 @@ feature/implementOAuth: 1. Commit
 feature/implementOAuth: 2. Commit
 feature/implementOAuth: 3. Commit
 feature/enhanceJavaFXClient: 1. Commit
+feature/enhanceJavaFXClient: 2. Commit
