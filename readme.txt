@@ -12,3 +12,4 @@ feature/fixTransactionBehaviour: 2. Commit
 feature/fixTransactionBehaviour: 3. Commit
 feature/implementPrivateMessages: 1. Commit
 feature/implementPrivateMessages: 2. Commit
+feature/implementPrivateMessages: 3. Commit
