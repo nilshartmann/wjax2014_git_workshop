@@ -19,3 +19,4 @@ feature/inspectPerformance: 3. Commit
 feature/implementExperimentalJavaFXClient: 1. Commit
 feature/implementExperimentalJavaFXClient: 2. Commit
 feature/implementExperimentalJavaFXClient: 3. Commit
+feature/extendTestSuites: 1. Commit
