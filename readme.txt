@@ -9,3 +9,4 @@ feature/improveSecurity: 2. Commit
 feature/improveSecurity: 3. Commit
 feature/replaceMavenWithGradle: 1. Commit
 feature/replaceMavenWithGradle: 2. Commit
+feature/replaceMavenWithGradle: 3. Commit
