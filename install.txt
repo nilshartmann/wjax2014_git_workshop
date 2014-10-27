@@ -1,1 +1,6 @@
 Dieses wird die Installationsanleitung
+Zur Installation gehen Sie wie folgt vor:
+
+ 1. Lorem
+ 2. Ipsum
+ 3.Dolor sit amend
