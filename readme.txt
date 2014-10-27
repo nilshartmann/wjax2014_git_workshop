@@ -35,3 +35,4 @@ feature/enhanceJavaFXClient: 2. Commit
 feature/rewriteJavadoc: 1. Commit
 feature/removeJavaFXClient: 1. Commit
 feature/implementTwoFactorAuthentication: 1. Commit
+feature/implementTwoFactorAuthentication: 2. Commit
