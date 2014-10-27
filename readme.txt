@@ -1,2 +1,3 @@
-Dieses ist die initiale Readme-Datei
-Da es in diesem Stadium noch keine Features gibt,ist sie leer
+Dieses ist die erstmals angepasste Readme-Datei
+Beschreibung von feature-1:
+Dieses brandneue Feature erlaubt es Ihnen, noch besser mit unserer Software zu arbeiten.
