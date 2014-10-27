@@ -26,4 +26,8 @@ rm -rf /opt/workshop/mvn-repo/de
 rm -rf /opt/workshop/git-repos/web-application.git
 cp -r /home/vagrant/repos/build/maven-rel-plugin/web-application.git/ /opt/workshop/git-repos
 
+cd /home/vagrant
+tar czvf _repos-backup.tar.gz repos/
+
+
 
