@@ -16,3 +16,14 @@ feature/upgradeSpringVersion: 3. Commit
 feature/inspectPerformance: 1. Commit
 feature/inspectPerformance: 2. Commit
 feature/inspectPerformance: 3. Commit
+feature/implementExperimentalJavaFXClient: 1. Commit
+feature/implementExperimentalJavaFXClient: 2. Commit
+feature/implementExperimentalJavaFXClient: 3. Commit
+feature/extendTestSuites: 1. Commit
+feature/extendTestSuites: 2. Commit
+feature/extendTestSuites: 3. Commit
+feature/extendTestSuites: 4. Commit
+feature/fixShellshockSecurityIssue: 1. Commit
+feature/fixShellshockSecurityIssue: 2. Commit
+feature/fixShellshockSecurityIssue: 3. Commit
+feature/fixShellshockSecurityIssue: 4. Commit
