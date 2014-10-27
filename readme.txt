@@ -3,3 +3,4 @@ Line2
 Line3
 master: 1. Commit
 master: 2. Commit
+master: 3. Commit
