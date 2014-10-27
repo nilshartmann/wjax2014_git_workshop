@@ -14,3 +14,4 @@ feature/upgradeSpringVersion: 1. Commit
 feature/upgradeSpringVersion: 2. Commit
 feature/upgradeSpringVersion: 3. Commit
 feature/inspectPerformance: 1. Commit
+feature/inspectPerformance: 2. Commit
