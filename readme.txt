@@ -10,3 +10,17 @@ feature/enhancePrivacyOptions: 3. Commit
 feature/fixTransactionBehaviour: 1. Commit
 feature/fixTransactionBehaviour: 2. Commit
 feature/fixTransactionBehaviour: 3. Commit
+feature/implementPrivateMessages: 1. Commit
+feature/implementPrivateMessages: 2. Commit
+feature/implementPrivateMessages: 3. Commit
+feature/implementShareWithActions: 1. Commit
+feature/implementShareWithActions: 2. Commit
+feature/implementShareWithActions: 3. Commit
+feature/implementShareWithActions: 4. Commit
+feature/implementShareWithActions: 5. Commit
+feature/implementShareWithActions: 6. Commit
+feature/implementShareWithActions: 7. Commit
+feature/addIndividualUserGravatars: 1. Commit
+feature/addIndividualUserGravatars: 2. Commit
+feature/overhaulSecurityAudits: 1. Commit
+feature/overhaulSecurityAudits: 2. Commit
