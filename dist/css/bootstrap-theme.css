@@ -2,13 +2,15 @@
 /**
  * Bootstrap Mini Theme w-jax Demo
  *
- * v4.0
+ * v4.1
  */
 
 .page-header h1 {
         color: rgb(240,80,51);
+		text-transform: uppercase;
+		border-bottom: 4px solid rgb(240,80,51);
 }
 .page-header:after {
         font-size:12px;
-        content: ' [Bootstrap v4.0]'
+        content: ' [Bootstrap v4.1]'
 }
