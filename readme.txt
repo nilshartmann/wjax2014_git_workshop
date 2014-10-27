@@ -6,3 +6,4 @@ feature/allowUserLoginWithGoogleId: 2. Commit
 feature/allowUserLoginWithGoogleId: 3. Commit
 feature/enhancePrivacyOptions: 1. Commit
 feature/enhancePrivacyOptions: 2. Commit
+feature/enhancePrivacyOptions: 3. Commit
