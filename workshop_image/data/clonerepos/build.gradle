@@ -116,6 +116,30 @@ task 'build/release-ajoberstar' (type: de.e2.wjax.CloneSubRepoTask, dependsOn: '
     runGradleTask='build'
 }
 
+/////////////////////////////////////////////// 
+
+// build
+task 'build/atlassian-jgitflow-plugin/web-application.git' (type: de.e2.wjax.CloneSubRepoTask) {
+    repoUrl='https://bitbucket.org/nilshartmann/wjax2014_git_workshop.git'
+    prefix='examples/build/atlassian-jgitflow-plugin/web-application/'
+}
+task 'build/maven-rel-plugin/web-application.git' (type: de.e2.wjax.CloneSubRepoTask) {
+    repoUrl='https://bitbucket.org/nilshartmann/wjax2014_git_workshop.git'
+    prefix='examples/build/maven-rel-plugin/web-application/'
+}
+
+// gitflow
+task 'gitflow/gitflow-beispiel' (type: de.e2.wjax.CloneSubRepoTask) {
+    repoUrl='https://bitbucket.org/nilshartmann/wjax2014_git_workshop.git'
+    prefix='examples/gitflow/gitflow-beispiel/'
+}
+task 'gitflow/gitflow-uebung' (type: de.e2.wjax.CloneSubRepoTask) {
+    repoUrl='https://bitbucket.org/nilshartmann/wjax2014_git_workshop.git'
+    prefix='examples/gitflow/gitflow-uebung/'
+}
+
+
+// merges
 task 'merges/10_ff-noff' (type: de.e2.wjax.CloneSubRepoTask) {
     repoUrl='https://bitbucket.org/nilshartmann/wjax2014_git_workshop.git'
     prefix='examples/merges/10_ff-noff/'
@@ -146,55 +170,55 @@ task 'merges/40_conflicts' (type: de.e2.wjax.CloneSubRepoTask) {
     prefix='examples/merges/40_conflicts/'
 }
 
-task 'build/maven-rel-plugin/web-application.git' (type: de.e2.wjax.CloneSubRepoTask) {
-    repoUrl='https://bitbucket.org/nilshartmann/wjax2014_git_workshop.git'
-    prefix='examples/build/maven-rel-plugin/web-application/'
-}
-/*
-task 'build/maven-rel-plugin/web-application' (type: de.e2.wjax.CloneSubRepoTask, dependsOn: 'build/maven-rel-plugin/web-application.git') {
-    repoUrl="../web-application.git"
-    withRemoteBranches=true
-    runMavenTask='package'
-}
-*/
-
-task 'gitflow/10_simple' (type: de.e2.wjax.CloneSubRepoTask) {
-    repoUrl='https://bitbucket.org/nilshartmann/wjax2014_git_workshop.git'
-    prefix='examples/gitflow/10_simple/'
-}
-
-
+// refspec
 task 'refspecs/remoteRepoEins.git' (type: de.e2.wjax.CloneSubRepoTask) {
     repoUrl='https://bitbucket.org/nilshartmann/wjax2014_git_workshop.git'
     prefix='examples/refspecs/remoteRepoEins/'
 }
 
-
-task 'remotes/mein-spring-klon.git' (type: de.e2.wjax.CloneSubRepoTask) {
+// remotes
+task 'remotes/beispiel/mein-spring-klon.git' (type: de.e2.wjax.CloneSubRepoTask) {
     repoUrl='https://bitbucket.org/nilshartmann/wjax2014_git_workshop.git'
-    prefix='examples/remotes/mein-spring-klon/'
+    prefix='examples/remotes/beispiel/mein-spring-klon/'
+}
+task 'remotes/beispiel/spring.git' (type: de.e2.wjax.CloneSubRepoTask) {
+    repoUrl='https://bitbucket.org/nilshartmann/wjax2014_git_workshop.git'
+    prefix='examples/remotes/beispiel/spring/'
+}
+task 'remotes/uebung/mein-spring-klon.git' (type: de.e2.wjax.CloneSubRepoTask) {
+    repoUrl='https://bitbucket.org/nilshartmann/wjax2014_git_workshop.git'
+    prefix='examples/remotes/uebung/mein-spring-klon/'
+}
+task 'remotes/uebung/spring.git' (type: de.e2.wjax.CloneSubRepoTask) {
+    repoUrl='https://bitbucket.org/nilshartmann/wjax2014_git_workshop.git'
+    prefix='examples/remotes/uebung/spring/'
 }
 
-task 'remotes/spring.git' (type: de.e2.wjax.CloneSubRepoTask) {
-    repoUrl='https://bitbucket.org/nilshartmann/wjax2014_git_workshop.git'
-    prefix='examples/remotes/spring/'
-}
-
-
+// submodule+subtree
 task 'submodule_subtree/submodule/bootstrap.git' (type: de.e2.wjax.CloneSubRepoTask) {
   repoUrl='https://bitbucket.org/nilshartmann/wjax2014_git_workshop.git'
   prefix='examples/submodule_subtree/submodule/bootstrap/'
 }
-
 task 'submodule_subtree/submodule/web-application.git' (type: de.e2.wjax.CloneSubRepoTask) {
   repoUrl='https://bitbucket.org/nilshartmann/wjax2014_git_workshop.git'
   prefix='examples/submodule_subtree/submodule/web-application/'
 }
-/*
-task 'submodule_subtree/submodule/web-application' (type: de.e2.wjax.CloneSubRepoTask, dependsOn: 'submodule_subtree/submodule/web-application.git') {
-    repoUrl="../web-application.git"
-    runGradleTask='jettyRunDaemon'
+task 'submodule_subtree/subtree/bootstrap.git' (type: de.e2.wjax.CloneSubRepoTask) {
+  repoUrl='https://bitbucket.org/nilshartmann/wjax2014_git_workshop.git'
+  prefix='examples/submodule_subtree/subtree/bootstrap/'
 }
-*/
+task 'submodule_subtree/subtree/web-application.git' (type: de.e2.wjax.CloneSubRepoTask) {
+  repoUrl='https://bitbucket.org/nilshartmann/wjax2014_git_workshop.git'
+  prefix='examples/submodule_subtree/subtree/web-application/'
+}
+
+
+
+
+
+
+
+
+
 
 
