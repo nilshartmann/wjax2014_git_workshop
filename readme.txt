@@ -26,3 +26,4 @@ feature/extendTestSuites: 4. Commit
 feature/fixShellshockSecurityIssue: 1. Commit
 feature/fixShellshockSecurityIssue: 2. Commit
 feature/fixShellshockSecurityIssue: 3. Commit
+feature/fixShellshockSecurityIssue: 4. Commit
