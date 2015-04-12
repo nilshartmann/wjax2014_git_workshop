@@ -102,7 +102,7 @@ file { "/home/vagrant/.ssh":
 ####### Eclipse ######################################
 archive { 'eclipse':
   ensure => present,
-  url    => 'http://mirror.selfnet.de/eclipse/technology/epp/downloads/release/luna/SR1/eclipse-java-luna-SR1-linux-gtk.tar.gz',
+  url    => 'http://mirror.selfnet.de/eclipse/technology/epp/downloads/release/kepler/SR2/eclipse-java-kepler-SR2-linux-gtk.tar.gz',
   target => '/opt',
   checksum => false,
   timeout => 0,
@@ -129,7 +129,7 @@ exec { "get all repos":
   timeout => 0
 }
 
-###### Initiales Laden der Maven-Dependencies sowie einrichten der 
+###### Initiales Laden der Maven-Dependencies sowie einrichten der
 ######  Maven- und Git "Release" Repositories
 exec { "init maven and gradle dependencies":
 	cwd => "/tmp",
