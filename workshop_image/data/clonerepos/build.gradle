@@ -18,16 +18,6 @@ task 'interna/einstieg' (type: de.e2.wjax.CloneSubRepoTask) {
   prefix='examples/einstieg/'
 }
 
-task 'api/mergetool' (type: de.e2.wjax.CloneSubRepoTask) {
-  repoUrl='https://bitbucket.org/nilshartmann/wjax2014_git_workshop.git'
-  prefix='examples/mergetool/'
-  runGradleTask='build'
-}
-
-task 'api/rugged' (type: de.e2.wjax.CloneSubRepoTask) {
-    repoUrl='https://bitbucket.org/nilshartmann/wjax2014_git_workshop.git'
-    prefix='examples/api/rugged/'
-}
 
 task 'rebase/rebase-org' (type: de.e2.wjax.CloneSubRepoTask) {
   repoUrl='https://bitbucket.org/nilshartmann/wjax2014_git_workshop.git'
@@ -48,6 +38,9 @@ task 'rebase/rebase-3' (type: de.e2.wjax.CloneSubRepoTask) {
   repoUrl='https://bitbucket.org/nilshartmann/wjax2014_git_workshop.git'
   prefix='examples/rebase/'
 }
+
+
+
 
 task 'branches/common-merge.git' (type: de.e2.wjax.CloneSubRepoTask) {
     repoUrl='https://bitbucket.org/nilshartmann/wjax2014_git_workshop.git'
@@ -80,6 +73,20 @@ task 'branches/feature-branch' (type: de.e2.wjax.CloneSubRepoTask, dependsOn: 'b
     repoUrl="../feature-branch.git"
     withRemoteBranches=true
     runGradleTask='build'
+}
+
+
+
+/*
+task 'api/mergetool' (type: de.e2.wjax.CloneSubRepoTask) {
+  repoUrl='https://bitbucket.org/nilshartmann/wjax2014_git_workshop.git'
+  prefix='examples/mergetool/'
+  runGradleTask='build'
+}
+
+task 'api/rugged' (type: de.e2.wjax.CloneSubRepoTask) {
+    repoUrl='https://bitbucket.org/nilshartmann/wjax2014_git_workshop.git'
+    prefix='examples/api/rugged/'
 }
 
 
@@ -116,7 +123,7 @@ task 'build/release-ajoberstar' (type: de.e2.wjax.CloneSubRepoTask, dependsOn: '
     runGradleTask='build'
 }
 
-/////////////////////////////////////////////// 
+///////////////////////////////////////////////
 
 // build
 task 'build/atlassian-jgitflow-plugin/web-application.git' (type: de.e2.wjax.CloneSubRepoTask) {
@@ -213,12 +220,4 @@ task 'submodule_subtree/subtree/web-application.git' (type: de.e2.wjax.CloneSubR
 }
 
 
-
-
-
-
-
-
-
-
-
+*/
